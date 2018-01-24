@@ -24,7 +24,6 @@
             "manualTradeQty": "Manual Trade Qty",
             "isActive": "Is Active",
             "commission": "Commission",
-            "coin": "Coin",
             "exchange": "Exchange"
         }
     }

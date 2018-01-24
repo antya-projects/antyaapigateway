@@ -12,7 +12,6 @@ export class MarketMySuffix implements BaseEntity {
         public manualTradeQty?: number,
         public isActive?: number,
         public commission?: number,
-        public coinId?: number,
         public exchangeId?: number,
     ) {
     }

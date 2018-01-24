@@ -37,6 +37,9 @@ public class Coin implements Serializable {
     @Column(name = "is_active")
     private Integer isActive;
 
+    @ManyToOne
+    private CoinAttributes coinAttributes;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -109,6 +112,19 @@ public class Coin implements Serializable {
 
     public void setIsActive(Integer isActive) {
         this.isActive = isActive;
+    }
+
+    public CoinAttributes getCoinAttributes() {
+        return coinAttributes;
+    }
+
+    public Coin coinAttributes(CoinAttributes coinAttributes) {
+        this.coinAttributes = coinAttributes;
+        return this;
+    }
+
+    public void setCoinAttributes(CoinAttributes coinAttributes) {
+        this.coinAttributes = coinAttributes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

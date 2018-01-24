@@ -8,6 +8,7 @@ export class CoinMySuffix implements BaseEntity {
         public coinImageUrl?: string,
         public coinName?: string,
         public isActive?: number,
+        public coinAttributesId?: number,
     ) {
     }
 }

@@ -5,7 +5,7 @@ export class CoinAttributesMySuffix implements BaseEntity {
         public id?: number,
         public minConfirmation?: number,
         public txnFees?: number,
-        public coinId?: number,
+        public coins?: BaseEntity[],
     ) {
     }
 }

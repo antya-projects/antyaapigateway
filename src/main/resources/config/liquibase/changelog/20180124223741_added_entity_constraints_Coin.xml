@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <!--
-        Added the constraints for entity Market.
+        Added the constraints for entity Coin.
     -->
-    <changeSet id="20180124223743-2" author="jhipster">
+    <changeSet id="20180124223741-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="exchange_id"
-                                 baseTableName="market"
-                                 constraintName="fk_market_exchange_id"
+        <addForeignKeyConstraint baseColumnNames="coin_attributes_id"
+                                 baseTableName="coin"
+                                 constraintName="fk_coin_coin_attributes_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="exchange"/>
+                                 referencedTableName="coin_attributes"/>
 
     </changeSet>
 </databaseChangeLog>

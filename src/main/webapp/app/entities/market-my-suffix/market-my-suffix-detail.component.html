@@ -40,12 +40,6 @@
         <dd>
             <span>{{market.commission}}</span>
         </dd>
-        <dt><span jhiTranslate="antyaapigatewayApp.market.coin">Coin</span></dt>
-        <dd>
-            <div *ngIf="market.coinId">
-                <a [routerLink]="['/coin-my-suffix', market.coinId]">{{market.coinId}}</a>
-            </div>
-        </dd>
         <dt><span jhiTranslate="antyaapigatewayApp.market.exchange">Exchange</span></dt>
         <dd>
             <div *ngIf="market.exchangeId">

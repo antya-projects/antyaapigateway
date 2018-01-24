@@ -2,11 +2,9 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "one-to-many",
             "relationshipName": "coin",
             "otherEntityName": "coin",
-            "otherEntityField": "id",
-            "ownerSide": true,
             "otherEntityRelationshipName": "coinAttributes"
         }
     ],

@@ -59,13 +59,6 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.coin" for="field_coin">Coin</label>
-            <select class="form-control" id="field_coin" name="coin" [(ngModel)]="market.coinId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="coinOption.id" *ngFor="let coinOption of coins; trackBy: trackCoinById">{{coinOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.exchange" for="field_exchange">Exchange</label>
             <select class="form-control" id="field_exchange" name="exchange" [(ngModel)]="market.exchangeId">
                 <option [ngValue]="null"></option>

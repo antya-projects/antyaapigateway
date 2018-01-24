@@ -46,15 +46,15 @@ entity Exchange{
     isActive Integer  
 }
 
-relationship OneToOne {
+relationship OneToMany {
 	CoinAttributes{coin} to Coin
 }
 
 // defining multiple oneToOne relationships
-relationship OneToOne {
-	Market{coin} to Coin
+//relationship OneToMany {
+//	Market{coin} to Coin
    
-}
+//}
 
 relationship OneToOne {
 	Market{exchange} to Exchange

@@ -29,9 +29,7 @@
             <column name="txn_fees" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            <column name="coin_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

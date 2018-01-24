@@ -24,6 +24,12 @@
         <dd>
             <span>{{coin.isActive}}</span>
         </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.coin.coinAttributes">Coin Attributes</span></dt>
+        <dd>
+            <div *ngIf="coin.coinAttributesId">
+                <a [routerLink]="['/coin-attributes-my-suffix', coin.coinAttributesId]">{{coin.coinAttributesId}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

@@ -26,7 +26,6 @@
             <th jhiSortBy="manualTradeQty"><span jhiTranslate="antyaapigatewayApp.market.manualTradeQty">Manual Trade Qty</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isActive"><span jhiTranslate="antyaapigatewayApp.market.isActive">Is Active</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="commission"><span jhiTranslate="antyaapigatewayApp.market.commission">Commission</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="coinId"><span jhiTranslate="antyaapigatewayApp.market.coin">Coin</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="exchangeId"><span jhiTranslate="antyaapigatewayApp.market.exchange">Exchange</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
@@ -43,11 +42,6 @@
                 <td>{{market.manualTradeQty}}</td>
                 <td>{{market.isActive}}</td>
                 <td>{{market.commission}}</td>
-                <td>
-                    <div *ngIf="market.coinId">
-                        <a [routerLink]="['../coin-my-suffix', market.coinId  ]" >{{market.coinId}}</a>
-                    </div>
-                </td>
                 <td>
                     <div *ngIf="market.exchangeId">
                         <a [routerLink]="['../exchange-my-suffix', market.exchangeId  ]" >{{market.exchangeId}}</a>

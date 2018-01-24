@@ -8,7 +8,6 @@ import { AntyaapigatewayTestModule } from '../../../test.module';
 import { MarketMySuffixDialogComponent } from '../../../../../../main/webapp/app/entities/market-my-suffix/market-my-suffix-dialog.component';
 import { MarketMySuffixService } from '../../../../../../main/webapp/app/entities/market-my-suffix/market-my-suffix.service';
 import { MarketMySuffix } from '../../../../../../main/webapp/app/entities/market-my-suffix/market-my-suffix.model';
-import { CoinMySuffixService } from '../../../../../../main/webapp/app/entities/coin-my-suffix';
 import { ExchangeMySuffixService } from '../../../../../../main/webapp/app/entities/exchange-my-suffix';
 
 describe('Component Tests', () => {
@@ -25,7 +24,6 @@ describe('Component Tests', () => {
                 imports: [AntyaapigatewayTestModule],
                 declarations: [MarketMySuffixDialogComponent],
                 providers: [
-                    CoinMySuffixService,
                     ExchangeMySuffixService,
                     MarketMySuffixService
                 ]
