@@ -1,0 +1,31 @@
+{
+    "antyaapigatewayApp": {
+        "market" : {
+            "home": {
+                "title": "Markets",
+                "createLabel": "नया Market बनाएँ",
+                "createOrEditLabel": "Market बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Market [identifier: {{ param }}] तैयार है",
+            "updated": "एक Market [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Market [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Market [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Market"
+            },
+            "currencyPairCode": "Currency Pair Code",
+            "name": "Name",
+            "marketCurrency": "Market Currency",
+            "baseCurrency": "Base Currency",
+            "minTradeSize": "Min Trade Size",
+            "maxTradeSize": "Max Trade Size",
+            "manualTradeQty": "Manual Trade Qty",
+            "isActive": "Is Active",
+            "commission": "Commission",
+            "coin": "Coin",
+            "exchange": "Exchange"
+        }
+    }
+}

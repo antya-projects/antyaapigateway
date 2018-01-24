@@ -1,0 +1,25 @@
+{
+    "antyaapigatewayApp": {
+        "coin" : {
+            "home": {
+                "title": "Coins",
+                "createLabel": "नया Coin बनाएँ",
+                "createOrEditLabel": "Coin बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Coin [identifier: {{ param }}] तैयार है",
+            "updated": "एक Coin [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Coin [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Coin [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Coin"
+            },
+            "coinCode": "Coin Code",
+            "coinInfoUrl": "Coin Info Url",
+            "coinImageUrl": "Coin Image Url",
+            "coinName": "Coin Name",
+            "isActive": "Is Active"
+        }
+    }
+}

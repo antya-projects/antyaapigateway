@@ -1,0 +1,23 @@
+{
+    "antyaapigatewayApp": {
+        "exchange" : {
+            "home": {
+                "title": "Exchanges",
+                "createLabel": "नया Exchange बनाएँ",
+                "createOrEditLabel": "Exchange बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Exchange [identifier: {{ param }}] तैयार है",
+            "updated": "एक Exchange [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Exchange [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Exchange [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Exchange"
+            },
+            "name": "Name",
+            "country": "Country",
+            "isActive": "Is Active"
+        }
+    }
+}

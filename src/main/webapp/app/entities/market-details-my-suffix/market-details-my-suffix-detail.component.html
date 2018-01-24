@@ -1,0 +1,66 @@
+
+<div *ngIf="marketDetails">
+    <h2><span jhiTranslate="antyaapigatewayApp.marketDetails.detail.title">Market Details</span> {{marketDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.highPrice">High Price</span></dt>
+        <dd>
+            <span>{{marketDetails.highPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.lowPrice">Low Price</span></dt>
+        <dd>
+            <span>{{marketDetails.lowPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.lastPrice">Last Price</span></dt>
+        <dd>
+            <span>{{marketDetails.lastPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.askPrice">Ask Price</span></dt>
+        <dd>
+            <span>{{marketDetails.askPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.bidPrice">Bid Price</span></dt>
+        <dd>
+            <span>{{marketDetails.bidPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.volume24hours">Volume 24 Hours</span></dt>
+        <dd>
+            <span>{{marketDetails.volume24hours}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.timeStamp">Time Stamp</span></dt>
+        <dd>
+            <span>{{marketDetails.timeStamp | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.isActive">Is Active</span></dt>
+        <dd>
+            <span>{{marketDetails.isActive}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.exchange">Exchange</span></dt>
+        <dd>
+            <div *ngIf="marketDetails.exchangeId">
+                <a [routerLink]="['/exchange-my-suffix', marketDetails.exchangeId]">{{marketDetails.exchangeId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.marketDetails.market">Market</span></dt>
+        <dd>
+            <div *ngIf="marketDetails.marketId">
+                <a [routerLink]="['/market-my-suffix', marketDetails.marketId]">{{marketDetails.marketId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-details-my-suffix/'+ marketDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

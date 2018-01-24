@@ -1,0 +1,70 @@
+
+<div *ngIf="market">
+    <h2><span jhiTranslate="antyaapigatewayApp.market.detail.title">Market</span> {{market.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="antyaapigatewayApp.market.currencyPairCode">Currency Pair Code</span></dt>
+        <dd>
+            <span>{{market.currencyPairCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.name">Name</span></dt>
+        <dd>
+            <span>{{market.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.marketCurrency">Market Currency</span></dt>
+        <dd>
+            <span>{{market.marketCurrency}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.baseCurrency">Base Currency</span></dt>
+        <dd>
+            <span>{{market.baseCurrency}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.minTradeSize">Min Trade Size</span></dt>
+        <dd>
+            <span>{{market.minTradeSize}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.maxTradeSize">Max Trade Size</span></dt>
+        <dd>
+            <span>{{market.maxTradeSize}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.manualTradeQty">Manual Trade Qty</span></dt>
+        <dd>
+            <span>{{market.manualTradeQty}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.isActive">Is Active</span></dt>
+        <dd>
+            <span>{{market.isActive}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.commission">Commission</span></dt>
+        <dd>
+            <span>{{market.commission}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.coin">Coin</span></dt>
+        <dd>
+            <div *ngIf="market.coinId">
+                <a [routerLink]="['/coin-my-suffix', market.coinId]">{{market.coinId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.market.exchange">Exchange</span></dt>
+        <dd>
+            <div *ngIf="market.exchangeId">
+                <a [routerLink]="['/exchange-my-suffix', market.exchangeId]">{{market.exchangeId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'market-my-suffix/'+ market.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

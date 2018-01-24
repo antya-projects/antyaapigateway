@@ -1,0 +1,30 @@
+{
+    "antyaapigatewayApp": {
+        "marketDetails" : {
+            "home": {
+                "title": "MarketDetails",
+                "createLabel": "नया Market Details बनाएँ",
+                "createOrEditLabel": "Market Details बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Market Details [identifier: {{ param }}] तैयार है",
+            "updated": "एक Market Details [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Market Details [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Market Details [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Market Details"
+            },
+            "highPrice": "High Price",
+            "lowPrice": "Low Price",
+            "lastPrice": "Last Price",
+            "askPrice": "Ask Price",
+            "bidPrice": "Bid Price",
+            "volume24hours": "Volume 24 Hours",
+            "timeStamp": "Time Stamp",
+            "isActive": "Is Active",
+            "exchange": "Exchange",
+            "market": "Market"
+        }
+    }
+}

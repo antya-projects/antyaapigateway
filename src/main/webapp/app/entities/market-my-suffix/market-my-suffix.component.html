@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="antyaapigatewayApp.market.home.title">Markets</span>
+        <button class="btn btn-primary float-right jh-create-entity create-market-my-suffix" [routerLink]="['/', { outlets: { popup: ['market-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="antyaapigatewayApp.market.home.createLabel">
+            Create new Market
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="markets">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="currencyPairCode"><span jhiTranslate="antyaapigatewayApp.market.currencyPairCode">Currency Pair Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="antyaapigatewayApp.market.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="marketCurrency"><span jhiTranslate="antyaapigatewayApp.market.marketCurrency">Market Currency</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="baseCurrency"><span jhiTranslate="antyaapigatewayApp.market.baseCurrency">Base Currency</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="minTradeSize"><span jhiTranslate="antyaapigatewayApp.market.minTradeSize">Min Trade Size</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="maxTradeSize"><span jhiTranslate="antyaapigatewayApp.market.maxTradeSize">Max Trade Size</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="manualTradeQty"><span jhiTranslate="antyaapigatewayApp.market.manualTradeQty">Manual Trade Qty</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isActive"><span jhiTranslate="antyaapigatewayApp.market.isActive">Is Active</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="commission"><span jhiTranslate="antyaapigatewayApp.market.commission">Commission</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="coinId"><span jhiTranslate="antyaapigatewayApp.market.coin">Coin</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="exchangeId"><span jhiTranslate="antyaapigatewayApp.market.exchange">Exchange</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let market of markets ;trackBy: trackId">
+                <td><a [routerLink]="['../market-my-suffix', market.id ]">{{market.id}}</a></td>
+                <td>{{market.currencyPairCode}}</td>
+                <td>{{market.name}}</td>
+                <td>{{market.marketCurrency}}</td>
+                <td>{{market.baseCurrency}}</td>
+                <td>{{market.minTradeSize}}</td>
+                <td>{{market.maxTradeSize}}</td>
+                <td>{{market.manualTradeQty}}</td>
+                <td>{{market.isActive}}</td>
+                <td>{{market.commission}}</td>
+                <td>
+                    <div *ngIf="market.coinId">
+                        <a [routerLink]="['../coin-my-suffix', market.coinId  ]" >{{market.coinId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="market.exchangeId">
+                        <a [routerLink]="['../exchange-my-suffix', market.exchangeId  ]" >{{market.exchangeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../market-my-suffix', market.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'market-my-suffix/'+ market.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'market-my-suffix/'+ market.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
