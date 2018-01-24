@@ -1,0 +1,23 @@
+{
+    "antyaapigatewayApp": {
+        "coinAttributes" : {
+            "home": {
+                "title": "CoinAttributes",
+                "createLabel": "नया Coin Attributes बनाएँ",
+                "createOrEditLabel": "Coin Attributes बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Coin Attributes [identifier: {{ param }}] तैयार है",
+            "updated": "एक Coin Attributes [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Coin Attributes [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Coin Attributes [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Coin Attributes"
+            },
+            "minConfirmation": "Min Confirmation",
+            "txnFees": "Txn Fees",
+            "coin": "Coin"
+        }
+    }
+}

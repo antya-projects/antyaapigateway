@@ -1,0 +1,84 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMarketLabel" jhiTranslate="antyaapigatewayApp.market.home.createOrEditLabel">Create or edit a Market</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!market.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="market.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.currencyPairCode" for="field_currencyPairCode">Currency Pair Code</label>
+            <input type="text" class="form-control" name="currencyPairCode" id="field_currencyPairCode"
+                [(ngModel)]="market.currencyPairCode" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="market.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.marketCurrency" for="field_marketCurrency">Market Currency</label>
+            <input type="text" class="form-control" name="marketCurrency" id="field_marketCurrency"
+                [(ngModel)]="market.marketCurrency" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.baseCurrency" for="field_baseCurrency">Base Currency</label>
+            <input type="text" class="form-control" name="baseCurrency" id="field_baseCurrency"
+                [(ngModel)]="market.baseCurrency" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.minTradeSize" for="field_minTradeSize">Min Trade Size</label>
+            <input type="number" class="form-control" name="minTradeSize" id="field_minTradeSize"
+                [(ngModel)]="market.minTradeSize" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.maxTradeSize" for="field_maxTradeSize">Max Trade Size</label>
+            <input type="number" class="form-control" name="maxTradeSize" id="field_maxTradeSize"
+                [(ngModel)]="market.maxTradeSize" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.manualTradeQty" for="field_manualTradeQty">Manual Trade Qty</label>
+            <input type="number" class="form-control" name="manualTradeQty" id="field_manualTradeQty"
+                [(ngModel)]="market.manualTradeQty" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.isActive" for="field_isActive">Is Active</label>
+            <input type="number" class="form-control" name="isActive" id="field_isActive"
+                [(ngModel)]="market.isActive" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.commission" for="field_commission">Commission</label>
+            <input type="number" class="form-control" name="commission" id="field_commission"
+                [(ngModel)]="market.commission" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.coin" for="field_coin">Coin</label>
+            <select class="form-control" id="field_coin" name="coin" [(ngModel)]="market.coinId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="coinOption.id" *ngFor="let coinOption of coins; trackBy: trackCoinById">{{coinOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.market.exchange" for="field_exchange">Exchange</label>
+            <select class="form-control" id="field_exchange" name="exchange" [(ngModel)]="market.exchangeId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="exchangeOption.id" *ngFor="let exchangeOption of exchanges; trackBy: trackExchangeById">{{exchangeOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

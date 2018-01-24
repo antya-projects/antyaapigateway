@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "exchange",
+            "otherEntityName": "exchange",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "marketPrice"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "market",
+            "otherEntityName": "market",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "currentPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "timeStamp",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180124223744",
+    "entityTableName": "market_price",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

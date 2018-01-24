@@ -1,0 +1,30 @@
+{
+    "antyaapigatewayApp": {
+        "marketDetails" : {
+            "home": {
+                "title": "Market Details",
+                "createLabel": "Create a new Market Details",
+                "createOrEditLabel": "Create or edit a Market Details"
+            },
+            "created": "A new Market Details is created with identifier {{ param }}",
+            "updated": "A Market Details is updated with identifier {{ param }}",
+            "deleted": "A Market Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Market Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Market Details"
+            },
+            "highPrice": "High Price",
+            "lowPrice": "Low Price",
+            "lastPrice": "Last Price",
+            "askPrice": "Ask Price",
+            "bidPrice": "Bid Price",
+            "volume24hours": "Volume 24 Hours",
+            "timeStamp": "Time Stamp",
+            "isActive": "Is Active",
+            "exchange": "Exchange",
+            "market": "Market"
+        }
+    }
+}

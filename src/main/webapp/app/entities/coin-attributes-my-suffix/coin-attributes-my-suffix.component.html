@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="antyaapigatewayApp.coinAttributes.home.title">Coin Attributes</span>
+        <button class="btn btn-primary float-right jh-create-entity create-coin-attributes-my-suffix" [routerLink]="['/', { outlets: { popup: ['coin-attributes-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="antyaapigatewayApp.coinAttributes.home.createLabel">
+            Create new Coin Attributes
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="coinAttributes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="minConfirmation"><span jhiTranslate="antyaapigatewayApp.coinAttributes.minConfirmation">Min Confirmation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="txnFees"><span jhiTranslate="antyaapigatewayApp.coinAttributes.txnFees">Txn Fees</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="coinId"><span jhiTranslate="antyaapigatewayApp.coinAttributes.coin">Coin</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let coinAttributes of coinAttributes ;trackBy: trackId">
+                <td><a [routerLink]="['../coin-attributes-my-suffix', coinAttributes.id ]">{{coinAttributes.id}}</a></td>
+                <td>{{coinAttributes.minConfirmation}}</td>
+                <td>{{coinAttributes.txnFees}}</td>
+                <td>
+                    <div *ngIf="coinAttributes.coinId">
+                        <a [routerLink]="['../coin-my-suffix', coinAttributes.coinId  ]" >{{coinAttributes.coinId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../coin-attributes-my-suffix', coinAttributes.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'coin-attributes-my-suffix/'+ coinAttributes.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'coin-attributes-my-suffix/'+ coinAttributes.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+
+<div *ngIf="coinAttributes">
+    <h2><span jhiTranslate="antyaapigatewayApp.coinAttributes.detail.title">Coin Attributes</span> {{coinAttributes.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="antyaapigatewayApp.coinAttributes.minConfirmation">Min Confirmation</span></dt>
+        <dd>
+            <span>{{coinAttributes.minConfirmation}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.coinAttributes.txnFees">Txn Fees</span></dt>
+        <dd>
+            <span>{{coinAttributes.txnFees}}</span>
+        </dd>
+        <dt><span jhiTranslate="antyaapigatewayApp.coinAttributes.coin">Coin</span></dt>
+        <dd>
+            <div *ngIf="coinAttributes.coinId">
+                <a [routerLink]="['/coin-my-suffix', coinAttributes.coinId]">{{coinAttributes.coinId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'coin-attributes-my-suffix/'+ coinAttributes.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
