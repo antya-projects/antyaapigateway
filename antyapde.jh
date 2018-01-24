@@ -47,7 +47,7 @@ entity Exchange{
 }
 
 relationship OneToMany {
-	CoinAttributes{coin} to Coin
+	Coin{coinAttributes} to CoinAttributes
 }
 
 // defining multiple oneToOne relationships

@@ -19,6 +19,7 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="minConfirmation"><span jhiTranslate="antyaapigatewayApp.coinAttributes.minConfirmation">Min Confirmation</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="txnFees"><span jhiTranslate="antyaapigatewayApp.coinAttributes.txnFees">Txn Fees</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="coinId"><span jhiTranslate="antyaapigatewayApp.coinAttributes.coin">Coin</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -27,6 +28,11 @@
                 <td><a [routerLink]="['../coin-attributes-my-suffix', coinAttributes.id ]">{{coinAttributes.id}}</a></td>
                 <td>{{coinAttributes.minConfirmation}}</td>
                 <td>{{coinAttributes.txnFees}}</td>
+                <td>
+                    <div *ngIf="coinAttributes.coinId">
+                        <a [routerLink]="['../coin-my-suffix', coinAttributes.coinId  ]" >{{coinAttributes.coinId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

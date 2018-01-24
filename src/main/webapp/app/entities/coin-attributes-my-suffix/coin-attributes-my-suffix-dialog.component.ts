@@ -4,11 +4,13 @@ import { Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { CoinAttributesMySuffix } from './coin-attributes-my-suffix.model';
 import { CoinAttributesMySuffixPopupService } from './coin-attributes-my-suffix-popup.service';
 import { CoinAttributesMySuffixService } from './coin-attributes-my-suffix.service';
+import { CoinMySuffix, CoinMySuffixService } from '../coin-my-suffix';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-coin-attributes-my-suffix-dialog',
@@ -19,15 +21,21 @@ export class CoinAttributesMySuffixDialogComponent implements OnInit {
     coinAttributes: CoinAttributesMySuffix;
     isSaving: boolean;
 
+    coins: CoinMySuffix[];
+
     constructor(
         public activeModal: NgbActiveModal,
+        private jhiAlertService: JhiAlertService,
         private coinAttributesService: CoinAttributesMySuffixService,
+        private coinService: CoinMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.coinService.query()
+            .subscribe((res: ResponseWrapper) => { this.coins = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -58,6 +66,14 @@ export class CoinAttributesMySuffixDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(error: any) {
+        this.jhiAlertService.error(error.message, null, null);
+    }
+
+    trackCoinById(index: number, item: CoinMySuffix) {
+        return item.id;
     }
 }
 

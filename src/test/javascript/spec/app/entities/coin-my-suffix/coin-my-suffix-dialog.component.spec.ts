@@ -8,7 +8,6 @@ import { AntyaapigatewayTestModule } from '../../../test.module';
 import { CoinMySuffixDialogComponent } from '../../../../../../main/webapp/app/entities/coin-my-suffix/coin-my-suffix-dialog.component';
 import { CoinMySuffixService } from '../../../../../../main/webapp/app/entities/coin-my-suffix/coin-my-suffix.service';
 import { CoinMySuffix } from '../../../../../../main/webapp/app/entities/coin-my-suffix/coin-my-suffix.model';
-import { CoinAttributesMySuffixService } from '../../../../../../main/webapp/app/entities/coin-attributes-my-suffix';
 
 describe('Component Tests', () => {
 
@@ -24,7 +23,6 @@ describe('Component Tests', () => {
                 imports: [AntyaapigatewayTestModule],
                 declarations: [CoinMySuffixDialogComponent],
                 providers: [
-                    CoinAttributesMySuffixService,
                     CoinMySuffixService
                 ]
             })

@@ -38,13 +38,6 @@
                 [(ngModel)]="coin.isActive" />
         </div>
 
-        <div class="form-group">
-            <label class="form-control-label" jhiTranslate="antyaapigatewayApp.coin.coinAttributes" for="field_coinAttributes">Coin Attributes</label>
-            <select class="form-control" id="field_coinAttributes" name="coinAttributes" [(ngModel)]="coin.coinAttributesId" >
-                <option [ngValue]="null"></option>
-                <option [ngValue]="coinAttributesOption.id" *ngFor="let coinAttributesOption of coinattributes; trackBy: trackCoinAttributesById">{{coinAttributesOption.id}}</option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
