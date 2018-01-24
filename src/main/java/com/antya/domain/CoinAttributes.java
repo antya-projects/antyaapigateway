@@ -1,6 +1,5 @@
 package com.antya.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,8 +7,6 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -32,10 +29,8 @@ public class CoinAttributes implements Serializable {
     @Column(name = "txn_fees", precision=10, scale=2)
     private BigDecimal txnFees;
 
-    @OneToMany(mappedBy = "coinAttributes")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Coin> coins = new HashSet<>();
+    @ManyToOne
+    private Coin coin;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -72,29 +67,17 @@ public class CoinAttributes implements Serializable {
         this.txnFees = txnFees;
     }
 
-    public Set<Coin> getCoins() {
-        return coins;
+    public Coin getCoin() {
+        return coin;
     }
 
-    public CoinAttributes coins(Set<Coin> coins) {
-        this.coins = coins;
+    public CoinAttributes coin(Coin coin) {
+        this.coin = coin;
         return this;
     }
 
-    public CoinAttributes addCoin(Coin coin) {
-        this.coins.add(coin);
-        coin.setCoinAttributes(this);
-        return this;
-    }
-
-    public CoinAttributes removeCoin(Coin coin) {
-        this.coins.remove(coin);
-        coin.setCoinAttributes(null);
-        return this;
-    }
-
-    public void setCoins(Set<Coin> coins) {
-        this.coins = coins;
+    public void setCoin(Coin coin) {
+        this.coin = coin;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

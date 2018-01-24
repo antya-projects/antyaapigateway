@@ -1,11 +1,14 @@
 package com.antya.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -37,8 +40,10 @@ public class Coin implements Serializable {
     @Column(name = "is_active")
     private Integer isActive;
 
-    @ManyToOne
-    private CoinAttributes coinAttributes;
+    @OneToMany(mappedBy = "coin")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<CoinAttributes> coinAttributes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,16 +119,28 @@ public class Coin implements Serializable {
         this.isActive = isActive;
     }
 
-    public CoinAttributes getCoinAttributes() {
+    public Set<CoinAttributes> getCoinAttributes() {
         return coinAttributes;
     }
 
-    public Coin coinAttributes(CoinAttributes coinAttributes) {
+    public Coin coinAttributes(Set<CoinAttributes> coinAttributes) {
         this.coinAttributes = coinAttributes;
         return this;
     }
 
-    public void setCoinAttributes(CoinAttributes coinAttributes) {
+    public Coin addCoinAttributes(CoinAttributes coinAttributes) {
+        this.coinAttributes.add(coinAttributes);
+        coinAttributes.setCoin(this);
+        return this;
+    }
+
+    public Coin removeCoinAttributes(CoinAttributes coinAttributes) {
+        this.coinAttributes.remove(coinAttributes);
+        coinAttributes.setCoin(null);
+        return this;
+    }
+
+    public void setCoinAttributes(Set<CoinAttributes> coinAttributes) {
         this.coinAttributes = coinAttributes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

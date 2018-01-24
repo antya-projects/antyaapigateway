@@ -22,7 +22,6 @@
             <th jhiSortBy="coinImageUrl"><span jhiTranslate="antyaapigatewayApp.coin.coinImageUrl">Coin Image Url</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="coinName"><span jhiTranslate="antyaapigatewayApp.coin.coinName">Coin Name</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isActive"><span jhiTranslate="antyaapigatewayApp.coin.isActive">Is Active</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="coinAttributesId"><span jhiTranslate="antyaapigatewayApp.coin.coinAttributes">Coin Attributes</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -34,11 +33,6 @@
                 <td>{{coin.coinImageUrl}}</td>
                 <td>{{coin.coinName}}</td>
                 <td>{{coin.isActive}}</td>
-                <td>
-                    <div *ngIf="coin.coinAttributesId">
-                        <a [routerLink]="['../coin-attributes-my-suffix', coin.coinAttributesId  ]" >{{coin.coinAttributesId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

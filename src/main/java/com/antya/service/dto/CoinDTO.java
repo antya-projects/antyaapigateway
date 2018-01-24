@@ -23,8 +23,6 @@ public class CoinDTO implements Serializable {
 
     private Integer isActive;
 
-    private Long coinAttributesId;
-
     public Long getId() {
         return id;
     }
@@ -71,14 +69,6 @@ public class CoinDTO implements Serializable {
 
     public void setIsActive(Integer isActive) {
         this.isActive = isActive;
-    }
-
-    public Long getCoinAttributesId() {
-        return coinAttributesId;
-    }
-
-    public void setCoinAttributesId(Long coinAttributesId) {
-        this.coinAttributesId = coinAttributesId;
     }
 
     @Override
