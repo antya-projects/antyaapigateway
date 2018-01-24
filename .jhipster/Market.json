@@ -3,14 +3,6 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "coin",
-            "otherEntityName": "coin",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "market"
-        },
-        {
-            "relationshipType": "one-to-one",
             "relationshipName": "exchange",
             "otherEntityName": "exchange",
             "otherEntityField": "id",

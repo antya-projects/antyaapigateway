@@ -52,10 +52,6 @@ public class Market implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Coin coin;
-
-    @OneToOne
-    @JoinColumn(unique = true)
     private Exchange exchange;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -182,19 +178,6 @@ public class Market implements Serializable {
 
     public void setCommission(BigDecimal commission) {
         this.commission = commission;
-    }
-
-    public Coin getCoin() {
-        return coin;
-    }
-
-    public Market coin(Coin coin) {
-        this.coin = coin;
-        return this;
-    }
-
-    public void setCoin(Coin coin) {
-        this.coin = coin;
     }
 
     public Exchange getExchange() {

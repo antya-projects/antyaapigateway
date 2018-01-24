@@ -19,7 +19,8 @@
             "coinInfoUrl": "Coin Info Url",
             "coinImageUrl": "Coin Image Url",
             "coinName": "Coin Name",
-            "isActive": "Is Active"
+            "isActive": "Is Active",
+            "coinAttributes": "Coin Attributes"
         }
     }
 }

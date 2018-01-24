@@ -18,8 +18,6 @@ public class CoinAttributesDTO implements Serializable {
 
     private BigDecimal txnFees;
 
-    private Long coinId;
-
     public Long getId() {
         return id;
     }
@@ -42,14 +40,6 @@ public class CoinAttributesDTO implements Serializable {
 
     public void setTxnFees(BigDecimal txnFees) {
         this.txnFees = txnFees;
-    }
-
-    public Long getCoinId() {
-        return coinId;
-    }
-
-    public void setCoinId(Long coinId) {
-        this.coinId = coinId;
     }
 
     @Override

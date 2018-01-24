@@ -32,8 +32,6 @@ public class MarketDTO implements Serializable {
 
     private BigDecimal commission;
 
-    private Long coinId;
-
     private Long exchangeId;
 
     public Long getId() {
@@ -114,14 +112,6 @@ public class MarketDTO implements Serializable {
 
     public void setCommission(BigDecimal commission) {
         this.commission = commission;
-    }
-
-    public Long getCoinId() {
-        return coinId;
-    }
-
-    public void setCoinId(Long coinId) {
-        this.coinId = coinId;
     }
 
     public Long getExchangeId() {

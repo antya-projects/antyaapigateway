@@ -2,6 +2,8 @@ package com.antya.service.dto;
 
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -20,6 +22,8 @@ public class CoinDTO implements Serializable {
     private String coinName;
 
     private Integer isActive;
+
+    private Long coinAttributesId;
 
     public Long getId() {
         return id;
@@ -67,6 +71,14 @@ public class CoinDTO implements Serializable {
 
     public void setIsActive(Integer isActive) {
         this.isActive = isActive;
+    }
+
+    public Long getCoinAttributesId() {
+        return coinAttributesId;
+    }
+
+    public void setCoinAttributesId(Long coinAttributesId) {
+        this.coinAttributesId = coinAttributesId;
     }
 
     @Override

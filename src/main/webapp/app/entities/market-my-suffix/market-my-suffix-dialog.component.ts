@@ -9,7 +9,6 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { MarketMySuffix } from './market-my-suffix.model';
 import { MarketMySuffixPopupService } from './market-my-suffix-popup.service';
 import { MarketMySuffixService } from './market-my-suffix.service';
-import { CoinMySuffix, CoinMySuffixService } from '../coin-my-suffix';
 import { ExchangeMySuffix, ExchangeMySuffixService } from '../exchange-my-suffix';
 import { ResponseWrapper } from '../../shared';
 
@@ -22,15 +21,12 @@ export class MarketMySuffixDialogComponent implements OnInit {
     market: MarketMySuffix;
     isSaving: boolean;
 
-    coins: CoinMySuffix[];
-
     exchanges: ExchangeMySuffix[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private marketService: MarketMySuffixService,
-        private coinService: CoinMySuffixService,
         private exchangeService: ExchangeMySuffixService,
         private eventManager: JhiEventManager
     ) {
@@ -38,19 +34,6 @@ export class MarketMySuffixDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.coinService
-            .query({filter: 'market-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.market.coinId) {
-                    this.coins = res.json;
-                } else {
-                    this.coinService
-                        .find(this.market.coinId)
-                        .subscribe((subRes: CoinMySuffix) => {
-                            this.coins = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
         this.exchangeService
             .query({filter: 'market-is-null'})
             .subscribe((res: ResponseWrapper) => {
@@ -98,10 +81,6 @@ export class MarketMySuffixDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
-    }
-
-    trackCoinById(index: number, item: CoinMySuffix) {
-        return item.id;
     }
 
     trackExchangeById(index: number, item: ExchangeMySuffix) {

@@ -8,13 +8,11 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity CoinAttributes and its DTO CoinAttributesDTO.
  */
-@Mapper(componentModel = "spring", uses = {CoinMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface CoinAttributesMapper extends EntityMapper<CoinAttributesDTO, CoinAttributes> {
 
-    @Mapping(source = "coin.id", target = "coinId")
-    CoinAttributesDTO toDto(CoinAttributes coinAttributes);
 
-    @Mapping(source = "coinId", target = "coin")
+    @Mapping(target = "coins", ignore = true)
     CoinAttributes toEntity(CoinAttributesDTO coinAttributesDTO);
 
     default CoinAttributes fromId(Long id) {
