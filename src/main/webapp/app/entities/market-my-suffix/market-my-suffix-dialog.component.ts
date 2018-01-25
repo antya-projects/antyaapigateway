@@ -34,19 +34,8 @@ export class MarketMySuffixDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.exchangeService
-            .query({filter: 'market-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.market.exchangeId) {
-                    this.exchanges = res.json;
-                } else {
-                    this.exchangeService
-                        .find(this.market.exchangeId)
-                        .subscribe((subRes: ExchangeMySuffix) => {
-                            this.exchanges = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.exchangeService.query()
+            .subscribe((res: ResponseWrapper) => { this.exchanges = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {

@@ -56,14 +56,14 @@ relationship OneToMany {
    
 //}
 
-relationship OneToOne {
+relationship ManyToOne {
 	Market{exchange} to Exchange
 }
 
-relationship OneToOne {
+relationship ManyToOne {
 	MarketDetails{exchange} to Exchange
 }
-relationship OneToOne {
+relationship ManyToOne {
 	MarketPrice{exchange} to Exchange
 }
 

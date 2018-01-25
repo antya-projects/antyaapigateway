@@ -30,8 +30,7 @@ public class MarketPrice implements Serializable {
     @Column(name = "time_stamp")
     private Instant timeStamp;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Exchange exchange;
 
     @ManyToOne
