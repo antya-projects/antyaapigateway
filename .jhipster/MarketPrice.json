@@ -2,12 +2,10 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "exchange",
             "otherEntityName": "exchange",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "marketPrice"
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",

@@ -57,7 +57,7 @@
 
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="antyaapigatewayApp.marketDetails.exchange" for="field_exchange">Exchange</label>
-            <select class="form-control" id="field_exchange" name="exchange" [(ngModel)]="marketDetails.exchangeId">
+            <select class="form-control" id="field_exchange" name="exchange" [(ngModel)]="marketDetails.exchangeId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="exchangeOption.id" *ngFor="let exchangeOption of exchanges; trackBy: trackExchangeById">{{exchangeOption.id}}</option>
             </select>

@@ -50,8 +50,7 @@ public class Market implements Serializable {
     @Column(name = "commission", precision=10, scale=2)
     private BigDecimal commission;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Exchange exchange;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

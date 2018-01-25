@@ -48,8 +48,7 @@ public class MarketDetails implements Serializable {
     @Column(name = "is_active")
     private Integer isActive;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Exchange exchange;
 
     @ManyToOne
